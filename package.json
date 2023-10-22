@@ -1,0 +1,17 @@
+{
+  "name": "devotional-backend",
+  "version": "1.0.0",
+  "description": "An api for registering daily devotion",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "devotional"
+  ],
+  "author": "Ishaku Fortune",
+  "license": "MIT"
+}
