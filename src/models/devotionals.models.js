@@ -2,6 +2,9 @@
 const axios = require('axios');
 const TOKEN = "6Oj6evEBEETGeRwi4cznJ5EBOlaXgn3uUpsFclS2";
 
+
+const devotionalsDatabase = require("./devotionals.mongo");
+
 const options = {
     headers: {
         accept: 'application/json',
@@ -21,8 +24,23 @@ const options = {
 
 
 async function main(){
-    const response = await axios.request(options)
+    const response = await axios.request(options);
+    await setTodaysDevotional({
+        devotional: response.data.generations[0].text, 
+        date: Date.now()
+    });
     return response.data
+}
+
+async function setTodaysDevotional(devotional){
+    const data = await devotionalsDatabase.find({});
+    console.log(data)
+    if(data.length === 0){
+        const devotionalToday = new devotionalsDatabase(devotional);
+        await devotionalToday.save();
+    }else{
+       await devotionalsDatabase.findByIdAndUpdate(data[0]['_id'], devotional);
+    }
 }
 
 
