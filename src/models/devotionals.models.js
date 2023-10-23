@@ -1,7 +1,7 @@
 // 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
 const axios = require('axios');
-
 const TOKEN = "6Oj6evEBEETGeRwi4cznJ5EBOlaXgn3uUpsFclS2";
+
 const options = {
     headers: {
         accept: 'application/json',
