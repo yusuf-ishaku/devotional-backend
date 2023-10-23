@@ -1,15 +1,15 @@
-const main = require("../../models/devotionals.models").main;
+const { getTodaysDevotional } = require("../../models/devotionals.models");
 
-async function getTodaysDevotional(req, res){
-   let data = await main();
-//    console.log(data)
-   let devotion = data.generations[0].text;
+async function httpGetTodaysDevotional(req, res){
+   let data = await getTodaysDevotional();
+   // console.log(data)
    return res.status(200).json({
-      devotional: devotion, 
-      date: Date.now()
+      devotional: data.devotional, 
+      date: data.date,
+      _id: data._id
   });
 }
 
 module.exports = {
-    getTodaysDevotional,
+    httpGetTodaysDevotional,
 }
