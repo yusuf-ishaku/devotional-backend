@@ -7,7 +7,7 @@ const devotionalsRouter = express.Router();
 devotionalsRouter.post('/save', httpSaveDevotional);
 devotionalsRouter.get('/today', httpGetTodaysDevotional);
 devotionalsRouter.get('/saved', httpGetSavedDevotionals);
-// devotionalsRouter.get("/:id",)
+// devotionalsRouter.get("/:id",);
 
 module.exports = {
     devotionalsRouter,
