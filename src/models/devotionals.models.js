@@ -2,7 +2,7 @@
 const axios = require('axios');
 const schedule = require('node-schedule')
 // still learning how to set environment variables
-//const TOKEN = "6Oj6evEBEETGeRwi4cznJ5EBOlaXgn3uUpsFclS2";
+const TOKEN = process.env.TOKEN;
 const devotionalsDatabase = require("./devotionals.mongo");
 
 const rule = new schedule.RecurrenceRule();

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 // require('dotenv').config();
 
 // Update below to match your own MongoDB connection string.
-//const MONGO_URL = "mongodb+srv://kingshakzy:Dfsuw2oDl1XjkOJa@devotionals.g2jvmwo.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connection.once('open', () => {
   console.log('MongoDB connection ready!');
