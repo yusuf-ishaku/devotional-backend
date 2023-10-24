@@ -11,4 +11,7 @@ const devotionalSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Devotional", devotionalSchema);
+module.exports ={
+   devotionalDatabase: mongoose.model("Devotional", devotionalSchema),
+   savedDevotionalsDatabase: mongoose.model("savedDevotionals", devotionalSchema),
+};

@@ -1,11 +1,12 @@
 const express = require('express');
 
-const { httpGetTodaysDevotional } = require('./devotionals.controller');
+const { httpGetTodaysDevotional, httpSaveDevotional, httpGetSavedDevotionals } = require('./devotionals.controller');
 
 
 const devotionalsRouter = express.Router();
-// devotionalsRouter.get('/saved', );
+devotionalsRouter.post('/save', httpSaveDevotional);
 devotionalsRouter.get('/today', httpGetTodaysDevotional);
+devotionalsRouter.get('/saved', httpGetSavedDevotionals);
 // devotionalsRouter.get("/:id",)
 
 module.exports = {
