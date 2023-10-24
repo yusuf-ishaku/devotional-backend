@@ -1,4 +1,4 @@
-const { getTodaysDevotional, saveDevotional , getSavedDevotionals} = require("../../models/devotional.model");
+const { getTodaysDevotional, saveDevotional , getSavedDevotionals, getDevotionalById} = require("../../models/devotional.model");
 
 async function httpGetTodaysDevotional(req, res){
    let data = await getTodaysDevotional();
@@ -27,8 +27,14 @@ async function httpGetSavedDevotionals(req, res){
     return res.status(200).json(mappedData);
 }
 
+async function httpGetDevotionalById(req, res){
+    let data = await getDevotionalById(req.params.id);
+    return res.status(200).json(data[0]);
+}
+
 module.exports = {
     httpGetTodaysDevotional,
     httpSaveDevotional,
-    httpGetSavedDevotionals
+    httpGetSavedDevotionals,
+    httpGetDevotionalById
 }

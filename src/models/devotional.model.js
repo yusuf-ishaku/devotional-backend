@@ -69,11 +69,17 @@ async function getSavedDevotionals(){
     const devotionals = await savedDevotionalsDatabase.find({});
     return devotionals
 }
+
+async function getDevotionalById(id){
+    const devotionalAtId = await savedDevotionalsDatabase.find({_id: id});
+    return devotionalAtId;
+}
 const job = schedule.scheduleJob(rule, main);
 // job();
 module.exports = {
     job,
     getTodaysDevotional,
     saveDevotional,
-    getSavedDevotionals
+    getSavedDevotionals,
+    getDevotionalById,
 }
