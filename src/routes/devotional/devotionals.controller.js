@@ -21,7 +21,7 @@ async function httpSaveDevotional(req, res){
 async function httpGetSavedDevotionals(req, res){
     const data = await getSavedDevotionals();
     let mappedData = data.map((x) =>(
-    {date: x.date, _id: x._id, devotional: x.id}
+    {date: x.date, _id: x._id, devotional: x.devotional}
     ))
     // console.log(mappedData);
     return res.status(200).json(mappedData);
